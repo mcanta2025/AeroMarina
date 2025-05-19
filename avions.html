@@ -2,22 +2,20 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Avions  - AéroMarina</title>
+  <title>Avions - AéroMarina</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
- <header>
     <img src="img/logo.png" alt="Logo AéroMarina" class="logo">
-    <h1>Nos avions:</h1>
-
+    <h1>Nos avions :</h1>
     <nav>
       <ul>
         <li><a href="index.html">Accueil</a></li>
         <li><a href="avions.html">Avions</a></li>
         <li><a href="bateaux.html">Bateaux</a></li>
         <li><a href="licences.html">Licences</a></li>
-          <li><a href="admin.html">Admin</a></li>
+        <li><a href="admin.html">Admin</a></li>
         <li><a href="reglementation.html">Règlementation</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
@@ -32,7 +30,7 @@
       <li>✈️ Caesar - 300,000€</li>
     </ul>
 
-   
+    <h3>Ajouts récents :</h3>
     <ul id="list-avions-new"></ul>
   </section>
 
@@ -41,24 +39,42 @@
     <ul id="list-avions-used"></ul>
   </section>
 
+  <section>
+    <h2>Données synchronisées (Google Sheets)</h2>
+    <iframe 
+      src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSTAmTAXEAJMkLgNzy5-D-cyavkVHbdOFFMv7mDAFIiCa39qr04aM7zIqUfcjAOkg4P14jBb_DKyGvu/pubhtml?gid=0&single=true&widget=false&headers=false"
+      style="width: 100%; max-height: 600px; border: none; overflow: auto; display: block; margin: auto;">
+    </iframe>
+  </section>
+
   <footer>
     <p>&copy; 2025 AéroMarina</p>
   </footer>
 
-  <section>
-  <h2>Données synchronisées</h2>
-  
-  <h2>Données synchronisées (Google Sheets)</h2>
-  <iframe 
-    src="<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSTAmTAXEAJMkLgNzy5-D-cyavkVHbdOFFMv7mDAFIiCa39qr04aM7zIqUfcjAOkg4P14jBb_DKyGvu/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false">
-
-    style="width: 100%; max-height: 600px; border: none; overflow: auto; display: block; margin: auto;">
-</iframe>
-
-</section>
   <audio autoplay loop>
-  <source src="audio/musique.mp3" type="audio/mpeg">
-  Votre navigateur ne supporte pas l'audio HTML5.
-</audio>
+    <source src="audio/musique.mp3" type="audio/mpeg">
+    Votre navigateur ne supporte pas l'audio HTML5.
+  </audio>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const listNew = document.getElementById("list-avions-new");
+      const newItems = JSON.parse(localStorage.getItem("itemsAvionsNew") || "[]");
+      newItems.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = `✈️ ${item.title} - ${item.price}€`;
+        listNew.appendChild(li);
+      });
+
+      const listUsed = document.getElementById("list-avions-used");
+      const usedItems = JSON.parse(localStorage.getItem("itemsUsed") || "[]");
+      const avionsOnly = usedItems.filter(item => item.type === "avion");
+      avionsOnly.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = `🛠️ ${item.title} - ${item.price}€`;
+        listUsed.appendChild(li);
+      });
+    });
+  </script>
 </body>
 </html>
