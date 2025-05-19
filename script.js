@@ -60,4 +60,5 @@ function displayItems() {
 }
 
 // Lancer l'affichage à l'ouverture
-displayItems();
+document.addEventListener("DOMContentLoaded", displayItems);
+
