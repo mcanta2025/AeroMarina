@@ -33,5 +33,18 @@
   </footer>
 
   <script src="script.js"></script>
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const listNew = document.getElementById("list-new");
+    if (listNew) {
+      const items = JSON.parse(localStorage.getItem("itemsNew") || "[]");
+      items.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = `✈️ ${item.title} - ${item.price}€`;
+        listNew.appendChild(li);
+      });
+    }
+  });
+</script>
 </body>
 </html>
