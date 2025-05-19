@@ -21,31 +21,47 @@
   </header>
 
   <section>
-    <h2>Avions disponibles</h2>
-  
+    <h2>Avions neufs disponibles</h2>
+    <ul>
+      <li>✈️ Cessna - 100,000€</li>
+      <li>✈️ Buzzard - 220,000€</li>
+      <li>✈️ Caesar - 300,000€</li>
+    </ul>
 
-  
-    <ul id="list-new"></ul>
+    <h3>Ajouts récents :</h3>
+    <ul id="list-avions-new"></ul>
+  </section>
+
+  <section>
+    <h2>Avions d'occasion</h2>
+    <ul id="list-avions-used"></ul>
   </section>
 
   <footer>
     <p>&copy; 2025 AéroMarina</p>
   </footer>
 
-  <script src="script.js"></script>
   <script>
-<ul id="list-avions-new"></ul>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Avions neufs
+      const newList = document.getElementById("list-avions-new");
+      const avionsNeufs = JSON.parse(localStorage.getItem("itemsAvionsNew") || "[]");
+      avionsNeufs.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = `✈️ ${item.title} - ${item.price}€`;
+        newList.appendChild(li);
+      });
 
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const list = document.getElementById("list-avions-new");
-    const items = JSON.parse(localStorage.getItem("itemsAvionsNew") || "[]");
-    items.forEach(item => {
-      const li = document.createElement("li");
-      li.textContent = `✈️ ${item.title} - ${item.price}€`;
-      list.appendChild(li);
+      // Avions d'occasion
+      const usedList = document.getElementById("list-avions-used");
+      const usedItems = JSON.parse(localStorage.getItem("itemsUsed") || "[]");
+      const avionsOccasions = usedItems.filter(item => item.type === "avion");
+      avionsOccasions.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = `🛠️ ${item.title} - ${item.price}€`;
+        usedList.appendChild(li);
+      });
     });
-  });
-</script>
+  </script>
 </body>
 </html>
