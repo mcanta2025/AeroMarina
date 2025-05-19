@@ -7,50 +7,57 @@
 </head>
 <body>
   <header>
-   <a href="index.html">
-  <img src="img/logo.png" alt="Logo AéroMarina" class="logo">
-</a>
-    <h1>Bienvenue! </h1>
+    <a href="index.html">
+      <img src="img/logo.png" alt="Logo AéroMarina" class="logo">
+    </a>
+    <h1>Bienvenue !</h1>
     <nav>
       <ul>
         <li><a href="index.html">Accueil</a></li>
         <li><a href="avions.html">Avions</a></li>
         <li><a href="bateaux.html">Bateaux</a></li>
         <li><a href="licences.html">Licences</a></li>
-          <li><a href="admin.html">Admin</a></li>
+        <li><a href="admin.html">Admin</a></li>
         <li><a href="reglementation.html">Règlementation</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  
-    <section id="accueil">
-  <h2>Bienvenue chez AéroMarina</h2>
-  <p>
-    Bienvenue sur le portail officiel d'<strong>AéroMarina</strong>, votre référence en matière de transport aérien et maritime sur Arcadia.
-    Spécialisés dans la <strong>vente d’avions, d’hélicoptères et de bateaux</strong>, nous vous accompagnons également dans le passage de vos licences officielles, qu’il s’agisse du <em>permis bateau</em> ou de la <em>licence pilote</em>.
-  </p>
-  <p>
-    Située entre port et aéroport, notre entreprise propose un service encadré, réaliste et immersif. Que vous soyez civil, entrepreneur ou membre d’une organisation, AéroMarina vous offre un accès exclusif aux véhicules les plus performants du marché, neufs ou d’occasion.
-  </p>
-  <p>
-   Devenez un acteur clé du trafic maritime et aérien de votre île.
-  </p>
-</section>
+  <section id="accueil">
+    <h2>Bienvenue chez AéroMarina</h2>
+    <p>
+      Spécialisé dans la <strong>vente d’avions et de bateaux</strong>, AéroMarina vous accompagne aussi dans vos <strong>licences</strong> officielles pour naviguer ou voler en toute sécurité.
+    </p>
+    <p>
+      Découvrez notre flotte, choisissez vos véhicules et devenez un acteur clé du trafic aérien et maritime de votre île.
+    </p>
 
-  
+    <a href="avions.html" class="cta">Voir nos véhicules</a>
+
+    <div class="slider">
+      <img src="img/slider1.jpg" alt="Avion" class="slide active">
+      <img src="img/slider2.jpg" alt="Bateau" class="slide">
+      <img src="img/slider3.jpg" alt="Vue aérienne" class="slide">
+    </div>
   </section>
 
   <footer>
-    <audio controls loop style="position: fixed; bottom: 10px; right: 10px; z-index: 1000;">
-  <source src="audio/musique.mp3" type="audio/mpeg">
-</audio>
+    <audio controls loop>
+      <source src="audio/musique.mp3" type="audio/mpeg">
+    </audio>
     <p>&copy; 2025 AéroMarina</p>
   </footer>
-  <audio autoplay loop>
-  <source src="audio/musique.mp3" type="audio/mpeg">
-  Votre navigateur ne supporte pas l'audio HTML5.
-</audio>
+
+  <script>
+    // Slider simple
+    let current = 0;
+    const slides = document.querySelectorAll(".slide");
+    setInterval(() => {
+      slides[current].classList.remove("active");
+      current = (current + 1) % slides.length;
+      slides[current].classList.add("active");
+    }, 4000);
+  </script>
 </body>
 </html>
