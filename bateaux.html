@@ -2,12 +2,12 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Avions - AéroMarina</title>
+  <title>Bateaux - AéroMarina</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
-    <h1>Nos Avions</h1>
+    <h1>Nos Bateaux</h1>
     <nav>
       <ul>
         <li><a href="index.html">Accueil</a></li>
@@ -21,30 +21,30 @@
   </header>
 
   <section>
-    <h2>Avions disponibles</h2>
+    <h2>Bateaux disponibles</h2>
     <ul>
-      <li>✈️ Cessna - 100,000€</li>
-      <li>✈️ Buzzard - 220,000€</li>
-      <li>✈️ Caesar - 300,000€</li>
+      <li>🛥️ Zodiac - 80,000€</li>
+      <li>🛥️ Trident - 150,000€</li>
     </ul>
+
+    <h3>Ajouts récents :</h3>
+    <ul id="list-bateaux-new"></ul>
   </section>
 
   <footer>
     <p>&copy; 2025 AéroMarina</p>
   </footer>
-  <ul id="list-bateaux-new"></ul>
 
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const list = document.getElementById("list-bateaux-new");
-    const items = JSON.parse(localStorage.getItem("itemsBateauxNew") || "[]");
-    items.forEach(item => {
-      const li = document.createElement("li");
-      li.textContent = `🛥️ ${item.title} - ${item.price}€`;
-      list.appendChild(li);
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const list = document.getElementById("list-bateaux-new");
+      const items = JSON.parse(localStorage.getItem("itemsBateauxNew") || "[]");
+      items.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = `🛥️ ${item.title} - ${item.price}€`;
+        list.appendChild(li);
+      });
     });
-  });
-</script>
+  </script>
 </body>
 </html>
-
