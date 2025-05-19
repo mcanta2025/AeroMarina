@@ -1,1 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Panneau Admin - AéroMarina</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Panneau d'administration</h1>
+    <nav>
+      <ul>
+        <li><a href="avions.html">Voir les Avions/Bateaux</a></li>
+        <li><a href="occasions.html">Voir les Occasions</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section>
+    <h2>Ajouter un avion ou bateau neuf</h2>
+    <form id="form-new">
+      <input type="text" id="new-title" placeholder="Nom de l'article" required>
+      <input type="number" id="new-price" placeholder="Prix (€)" required>
+      <button type="submit">Ajouter</button>
+    </form>
+
+    <h2>Ajouter un article d'occasion</h2>
+    <form id="form-used">
+      <input type="text" id="used-title" placeholder="Nom de l'article" required>
+      <input type="number" id="used-price" placeholder="Prix (€)" required>
+      <button type="submit">Ajouter</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 AéroMarina</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
 
