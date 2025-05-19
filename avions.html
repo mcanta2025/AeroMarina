@@ -45,28 +45,15 @@
     <p>&copy; 2025 AéroMarina</p>
   </footer>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      // Avions neufs
-      const newList = document.getElementById("list-avions-new");
-      const avionsNeufs = JSON.parse(localStorage.getItem("itemsAvionsNew") || "[]");
-      avionsNeufs.forEach(item => {
-        const li = document.createElement("li");
-        li.textContent = `✈️ ${item.title} - ${item.price}€`;
-        newList.appendChild(li);
-      });
-
-      // Avions d'occasion
-      const usedList = document.getElementById("list-avions-used");
-      const usedItems = JSON.parse(localStorage.getItem("itemsUsed") || "[]");
-      const avionsOccasions = usedItems.filter(item => item.type === "avion");
-      avionsOccasions.forEach(item => {
-        const li = document.createElement("li");
-        li.textContent = `🛠️ ${item.title} - ${item.price}€`;
-        usedList.appendChild(li);
-      });
-    });
-  </script>
+  <section>
+  <h2>Données synchronisées</h2>
+  <iframe 
+    src="https://docs.google.com/spreadsheets/d/e/TON_ID/pubhtml?widget=true&amp;headers=false" 
+    width="100%" 
+    height="500" 
+    frameborder="0">
+  </iframe>
+</section>
   <audio autoplay loop>
   <source src="audio/musique.mp3" type="audio/mpeg">
   Votre navigateur ne supporte pas l'audio HTML5.
