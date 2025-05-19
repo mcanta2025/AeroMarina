@@ -17,12 +17,17 @@
   </header>
 
   <section>
-    <h2>Ajouter un avion ou bateau neuf</h2>
-    <form id="form-new">
-      <input type="text" id="new-title" placeholder="Nom de l'article" required>
-      <input type="number" id="new-price" placeholder="Prix (€)" required>
-      <button type="submit">Ajouter</button>
-    </form>
+   <h2>Ajouter un avion ou bateau neuf</h2>
+<form id="form-new">
+  <select id="new-type" required>
+    <option value="">-- Type --</option>
+    <option value="avion">Avion</option>
+    <option value="bateau">Bateau</option>
+  </select>
+  <input type="text" id="new-title" placeholder="Nom de l'article" required>
+  <input type="number" id="new-price" placeholder="Prix (€)" required>
+  <button type="submit">Ajouter</button>
+</form>
 
     <h2>Ajouter un article d'occasion</h2>
     <form id="form-used">
