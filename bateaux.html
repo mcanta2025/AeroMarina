@@ -21,7 +21,7 @@
   </header>
 
   <section>
-    <h2>Bateaux disponibles</h2>
+    <h2>Bateaux neufs disponibles</h2>
     <ul>
       <li>🛥️ Zodiac - 80,000€</li>
       <li>🛥️ Trident - 150,000€</li>
@@ -31,18 +31,34 @@
     <ul id="list-bateaux-new"></ul>
   </section>
 
+  <section>
+    <h2>Bateaux d'occasion</h2>
+    <ul id="list-bateaux-used"></ul>
+  </section>
+
   <footer>
     <p>&copy; 2025 AéroMarina</p>
   </footer>
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      const list = document.getElementById("list-bateaux-new");
-      const items = JSON.parse(localStorage.getItem("itemsBateauxNew") || "[]");
-      items.forEach(item => {
+      // Affichage bateaux neufs
+      const listNew = document.getElementById("list-bateaux-new");
+      const newItems = JSON.parse(localStorage.getItem("itemsBateauxNew") || "[]");
+      newItems.forEach(item => {
         const li = document.createElement("li");
         li.textContent = `🛥️ ${item.title} - ${item.price}€`;
-        list.appendChild(li);
+        listNew.appendChild(li);
+      });
+
+      // Affichage bateaux d'occasion
+      const listUsed = document.getElementById("list-bateaux-used");
+      const usedItems = JSON.parse(localStorage.getItem("itemsUsed") || "[]");
+      const boatsOnly = usedItems.filter(item => item.type === "bateau");
+      boatsOnly.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = `🛠️ ${item.title} - ${item.price}€`;
+        listUsed.appendChild(li);
       });
     });
   </script>
