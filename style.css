@@ -29,10 +29,11 @@ nav a {
 
 section {
   padding: 40px 20px;
-  border-bottom: 1px solid #ccc;
   background: white;
-  margin: 10px auto;
+  margin: 20px auto;
   max-width: 900px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
 footer {
@@ -40,5 +41,5 @@ footer {
   padding: 20px;
   background: #003366;
   color: white;
+  margin-top: 20px;
 }
-
