@@ -34,16 +34,17 @@
 
   <script src="script.js"></script>
   <script>
+<ul id="list-avions-new"></ul>
+
+<script>
   document.addEventListener("DOMContentLoaded", () => {
-    const listNew = document.getElementById("list-new");
-    if (listNew) {
-      const items = JSON.parse(localStorage.getItem("itemsNew") || "[]");
-      items.forEach(item => {
-        const li = document.createElement("li");
-        li.textContent = `✈️ ${item.title} - ${item.price}€`;
-        listNew.appendChild(li);
-      });
-    }
+    const list = document.getElementById("list-avions-new");
+    const items = JSON.parse(localStorage.getItem("itemsAvionsNew") || "[]");
+    items.forEach(item => {
+      const li = document.createElement("li");
+      li.textContent = `✈️ ${item.title} - ${item.price}€`;
+      list.appendChild(li);
+    });
   });
 </script>
 </body>
