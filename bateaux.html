@@ -32,6 +32,19 @@
   <footer>
     <p>&copy; 2025 AéroMarina</p>
   </footer>
+  <ul id="list-bateaux-new"></ul>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const list = document.getElementById("list-bateaux-new");
+    const items = JSON.parse(localStorage.getItem("itemsBateauxNew") || "[]");
+    items.forEach(item => {
+      const li = document.createElement("li");
+      li.textContent = `🛥️ ${item.title} - ${item.price}€`;
+      list.appendChild(li);
+    });
+  });
+</script>
 </body>
 </html>
 
