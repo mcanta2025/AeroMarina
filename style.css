@@ -1,37 +1,40 @@
+/* ====== GLOBAL ====== */
 body {
   font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  color: #333;
   margin: 0;
   padding: 0;
-  background: #121826; /* Fond sombre du logo */
-  color: #e4e4e4; /* Texte clair */
 }
 
+/* ====== HEADER ====== */
 header {
+  background-color: #004080;
+  color: white;
+  padding: 15px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  padding: 10px;
-  background-color: #004080;
-  color: white;
+}
+
+header h1 {
+  font-size: 24px;
+  margin: 0 20px;
 }
 
 header img.logo {
   height: 60px;
 }
 
-header h1 {
-  margin: 0 20px;
-  font-size: 24px;
-}
-
+/* ====== NAVIGATION ====== */
 nav ul {
   list-style: none;
   display: flex;
-  flex-wrap: wrap;
   gap: 15px;
   padding: 0;
   margin: 0;
+  flex-wrap: wrap;
 }
 
 nav a {
@@ -40,27 +43,63 @@ nav a {
   font-weight: bold;
 }
 
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* ====== SECTION ====== */
 section {
-  padding: 40px 20px;
-  background: #1e2433;
-  margin: 20px auto;
-  max-width: 900px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  padding: 20px;
+  background-color: white;
+  margin: 20px;
+  border-radius: 8px;
 }
 
-textarea {
-  width: 100%;
-  padding: 10px;
-  border-radius: 5px;
+section h2, section h3 {
+  color: #004080;
+}
+
+/* ====== FORMULAIRES ====== */
+form {
+  margin-bottom: 20px;
+}
+
+form input, form select {
+  padding: 8px;
+  margin: 5px 10px 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+form button {
+  padding: 8px 16px;
+  background-color: #004080;
+  color: white;
   border: none;
-  resize: vertical;
-  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
+form button:hover {
+  background-color: #0066cc;
+}
+
+/* ====== LISTES ====== */
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+ul li {
+  padding: 6px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+/* ====== FOOTER ====== */
 footer {
   text-align: center;
-  padding: 20px;
-  background: #121826;
-  color: #ccc;
+  padding: 15px;
+  background-color: #004080;
+  color: white;
+  margin-top: 40px;
 }
