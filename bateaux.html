@@ -7,16 +7,15 @@
 </head>
 <body>
   <header>
- <header>
     <img src="img/logo.png" alt="Logo AéroMarina" class="logo">
-    <h1>Nos Bateaux </h1>
+    <h1>Nos Bateaux</h1>
     <nav>
       <ul>
         <li><a href="index.html">Accueil</a></li>
         <li><a href="avions.html">Avions</a></li>
         <li><a href="bateaux.html">Bateaux</a></li>
         <li><a href="licences.html">Licences</a></li>
-          <li><a href="admin.html">Admin</a></li>
+        <li><a href="admin.html">Admin</a></li>
         <li><a href="reglementation.html">Règlementation</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
@@ -30,7 +29,7 @@
       <li>🛥️ Trident - 150,000€</li>
     </ul>
 
-  
+    <h3>Ajouts récents :</h3>
     <ul id="list-bateaux-new"></ul>
   </section>
 
@@ -45,7 +44,6 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      // Affichage bateaux neufs
       const listNew = document.getElementById("list-bateaux-new");
       const newItems = JSON.parse(localStorage.getItem("itemsBateauxNew") || "[]");
       newItems.forEach(item => {
@@ -54,7 +52,6 @@
         listNew.appendChild(li);
       });
 
-      // Affichage bateaux d'occasion
       const listUsed = document.getElementById("list-bateaux-used");
       const usedItems = JSON.parse(localStorage.getItem("itemsUsed") || "[]");
       const boatsOnly = usedItems.filter(item => item.type === "bateau");
