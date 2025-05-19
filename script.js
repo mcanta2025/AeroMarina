@@ -1,4 +1,4 @@
-// ---------- AJOUT ----------
+// -------- Ajout --------
 document.getElementById("form-new")?.addEventListener("submit", function (e) {
   e.preventDefault();
   const title = document.getElementById("new-title").value;
@@ -7,7 +7,7 @@ document.getElementById("form-new")?.addEventListener("submit", function (e) {
   items.push({ title, price });
   localStorage.setItem("itemsNew", JSON.stringify(items));
   this.reset();
-  displayItems(); // met à jour l'affichage
+  displayItems();
 });
 
 document.getElementById("form-used")?.addEventListener("submit", function (e) {
@@ -18,10 +18,10 @@ document.getElementById("form-used")?.addEventListener("submit", function (e) {
   items.push({ title, price });
   localStorage.setItem("itemsUsed", JSON.stringify(items));
   this.reset();
-  displayItems(); // met à jour l'affichage
+  displayItems();
 });
 
-// ---------- SUPPRESSION ----------
+// -------- Suppression --------
 function deleteItem(type, index) {
   const key = type === 'new' ? "itemsNew" : "itemsUsed";
   const items = JSON.parse(localStorage.getItem(key) || "[]");
@@ -30,35 +30,30 @@ function deleteItem(type, index) {
   displayItems();
 }
 
-// ---------- AFFICHAGE ----------
+// -------- Affichage --------
 function displayItems() {
-  // Neufs
-  const listNew = document.getElementById("list-new-admin");
-  if (listNew) {
-    listNew.innerHTML = "";
-    const items = JSON.parse(localStorage.getItem("itemsNew") || "[]");
-    items.forEach((item, index) => {
+  const newList = document.getElementById("list-new-admin");
+  const usedList = document.getElementById("list-used-admin");
+
+  if (newList) {
+    newList.innerHTML = "";
+    const itemsNew = JSON.parse(localStorage.getItem("itemsNew") || "[]");
+    itemsNew.forEach((item, index) => {
       const li = document.createElement("li");
-      li.innerHTML = `✈️ ${item.title} - ${item.price}€ 
-        <button onclick="deleteItem('new', ${index})">Supprimer</button>`;
-      listNew.appendChild(li);
+      li.innerHTML = `${item.title} - ${item.price}€ <button onclick="deleteItem('new', ${index})">Supprimer</button>`;
+      newList.appendChild(li);
     });
   }
 
-  // Occasions
-  const listUsed = document.getElementById("list-used-admin");
-  if (listUsed) {
-    listUsed.innerHTML = "";
-    const items = JSON.parse(localStorage.getItem("itemsUsed") || "[]");
-    items.forEach((item, index) => {
+  if (usedList) {
+    usedList.innerHTML = "";
+    const itemsUsed = JSON.parse(localStorage.getItem("itemsUsed") || "[]");
+    itemsUsed.forEach((item, index) => {
       const li = document.createElement("li");
-      li.innerHTML = `🛥️ ${item.title} - ${item.price}€ 
-        <button onclick="deleteItem('used', ${index})">Supprimer</button>`;
-      listUsed.appendChild(li);
+      li.innerHTML = `${item.title} - ${item.price}€ <button onclick="deleteItem('used', ${index})">Supprimer</button>`;
+      usedList.appendChild(li);
     });
   }
 }
 
-// Lancer l'affichage à l'ouverture
 document.addEventListener("DOMContentLoaded", displayItems);
-
