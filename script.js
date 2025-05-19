@@ -24,20 +24,24 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 }
 
-  if (formUsed) {
-    formUsed.addEventListener("submit", function (e) {
-      e.preventDefault();
-      const title = document.getElementById("used-title").value.trim();
-      const price = document.getElementById("used-price").value;
-      if (!title || !price) return;
+ if (formUsed) {
+  formUsed.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const type = document.getElementById("used-type").value;
+    const title = document.getElementById("used-title").value.trim();
+    const price = document.getElementById("used-price").value;
 
-      const items = JSON.parse(localStorage.getItem("itemsUsed") || "[]");
-      items.push({ title, price });
-      localStorage.setItem("itemsUsed", JSON.stringify(items));
-      formUsed.reset();
-      displayItems();
-    });
-  }
+    if (!type || !title || !price) return;
+
+    const items = JSON.parse(localStorage.getItem("itemsUsed") || "[]");
+    items.push({ type, title, price });
+    localStorage.setItem("itemsUsed", JSON.stringify(items));
+
+    formUsed.reset();
+    displayItems();
+  });
+}
+
 });
 
 // ============ SUPPRESSION ============
