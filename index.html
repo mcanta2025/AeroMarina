@@ -78,15 +78,17 @@
     <p>&copy; 2025 AéroMarina Maurice Canta</p>
   </footer>
 
-  <script>
-    // Slider simple
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const slides = document.querySelectorAll(".slider .slide");
     let current = 0;
-    const slides = document.querySelectorAll(".slide");
+
     setInterval(() => {
       slides[current].classList.remove("active");
       current = (current + 1) % slides.length;
       slides[current].classList.add("active");
     }, 4000);
-  </script>
+  });
+</script>
 </body>
 </html>
