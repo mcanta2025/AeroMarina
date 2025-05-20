@@ -8,62 +8,58 @@
 <body>
   <header>
     <img src="img/logo.png" alt="Logo AéroMarina" class="logo">
-    
     <nav>
       <ul>
         <li><a href="index.html">Accueil</a></li>
         <li><a href="avions.html">Avions</a></li>
         <li><a href="bateaux.html">Bateaux</a></li>
         <li><a href="licences.html">Licences</a></li>
-        
         <li><a href="reglementation.html">Règlementation</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
- <section style="background: rgba(0,0,0,0.6); color: white; padding: 30px; border-radius: 10px; max-width: 900px; margin: 40px auto;">
-     <h2>Avions neufs disponibles</h2>
+
+  <!-- Section liste d'avions -->
+  <section style="background: rgba(0,0,0,0.6); color: white; padding: 30px; border-radius: 10px; max-width: 900px; margin: 40px auto;">
+    <h2>Avions neufs disponibles</h2>
     <ul>
       <li>✈️ Cessna - 100,000€</li>
       <li>✈️ Buzzard - 220,000€</li>
       <li>✈️ Caesar - 300,000€</li>
     </ul>
-
-  
+    <ul id="list-avions-new"></ul>
   </section>
 
+  <section style="background: rgba(0,0,0,0.6); color: white; padding: 30px; border-radius: 10px; max-width: 900px; margin: 40px auto;">
+    <h2>Avions d'occasion</h2>
+    <ul id="list-avions-used"></ul>
+  </section>
 
-  <section style="display: flex; justify-content: center; background: #f0f0f0; padding: 40px 0;">
-   <div style="width: 794px; height: 1123px; background: white; box-shadow: 0 0 10px rgba(0,0,0,0.1); border-radius: 4px; overflow: hidden;">
-    <iframe 
-     
-      src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTnouWwN_xKFohOKXJkkuAs7RJ6MaBjyzA0oqPpJfPK0Vu1_l7sCRnjAr8xI_XnWA6SFZm3JIF8XaaD/pubhtml?gid=0&single=true&widget=false&headers=false"
-      style="width: 100%; height: 600px; border: none;">
-    </iframe>
-  </div>
+  <!-- Section feuille Google Sheets -->
+  <section style="display: flex; justify-content: center; padding: 40px 0;">
+    <div style="width: 794px; background: transparent; border-radius: 4px; overflow: hidden;">
+      <iframe 
+        src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTnouWwN_xKFohOKXJkkuAs7RJ6MaBjyzA0oqPpJfPK0Vu1_l7sCRnjAr8xI_XnWA6SFZm3JIF8XaaD/pubhtml?gid=0&single=true&widget=false&headers=false"
+        style="width: 100%; height: 1000px; border: none;">
+      </iframe>
+    </div>
+  </section>
 
-
-  </div>
-</section>
   <footer>
     <p>&copy; 2025 AéroMarina Maurice Canta</p>
   </footer>
 
-  <audio autoplay loop>
+  <audio autoplay loop id="bg-music">
     <source src="audio/musique.mp3" type="audio/mpeg">
     Votre navigateur ne supporte pas l'audio HTML5.
   </audio>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const audio = document.getElementById("bg-music");
-    if (audio) {
-      audio.volume = 0.2; // Régle ici le volume (0 = muet, 1 = max)
-    }
-  });
-</script>
 
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
+    document.addEventListener("DOMContentLoaded", function () {
+      const audio = document.getElementById("bg-music");
+      if (audio) audio.volume = 0.2;
+
       const listNew = document.getElementById("list-avions-new");
       const newItems = JSON.parse(localStorage.getItem("itemsAvionsNew") || "[]");
       newItems.forEach(item => {
