@@ -8,51 +8,58 @@
 <body>
   <header>
     <img src="img/logo.png" alt="Logo AéroMarina" class="logo">
-    
     <nav>
       <ul>
         <li><a href="index.html">Accueil</a></li>
         <li><a href="avions.html">Avions</a></li>
         <li><a href="bateaux.html">Bateaux</a></li>
         <li><a href="licences.html">Licences</a></li>
-        
         <li><a href="reglementation.html">Règlementation</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
 
+  <!-- Section bateaux neufs -->
   <section style="background: rgba(0,0,0,0.6); color: white; padding: 30px; border-radius: 10px; max-width: 900px; margin: 40px auto;">
     <h2>Bateaux neufs disponibles</h2>
     <ul>
       <li>🛥️ Zodiac - 80,000€</li>
       <li>🛥️ Trident - 150,000€</li>
     </ul>
-
-  
-    
+    <ul id="list-bateaux-new"></ul>
   </section>
 
-  
+  <!-- Section bateaux d'occasion -->
+  <section style="background: rgba(0,0,0,0.6); color: white; padding: 30px; border-radius: 10px; max-width: 900px; margin: 40px auto;">
+    <h2>Bateaux d'occasion</h2>
+    <ul id="list-bateaux-used"></ul>
+  </section>
 
-  <section style="display: flex; justify-content: center; background: #f0f0f0; padding: 40px 0;">
-  <div style="width: 794px; height: 1123px; background: white; box-shadow: 0 0 10px rgba(0,0,0,0.1); border-radius: 4px; overflow: hidden;">
-    <iframe 
-      src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTnouWwN_xKFohOKXJkkuAs7RJ6MaBjyzA0oqPpJfPK0Vu1_l7sCRnjAr8xI_XnWA6SFZm3JIF8XaaD/pubhtml?gid=661615503&single=true&widget=true&headers=false"
-      style="width: 100%; height: 100%; border: none; overflow-x: hidden;">
-    </iframe>
-  </div>
-</section>
-  
+  <!-- Google Sheet iframe -->
+  <section style="display: flex; justify-content: center; padding: 40px 0;">
+    <div style="width: 794px; background: transparent; border-radius: 4px; overflow: hidden;">
+      <iframe 
+        src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTnouWwN_xKFohOKXJkkuAs7RJ6MaBjyzA0oqPpJfPK0Vu1_l7sCRnjAr8xI_XnWA6SFZm3JIF8XaaD/pubhtml?gid=661615503&single=true&widget=true&headers=false"
+        style="width: 100%; height: 1000px; border: none;">
+      </iframe>
+    </div>
+  </section>
 
-  <audio autoplay loop>
+  <footer>
+    <p>&copy; 2025 AéroMarina Maurice Canta</p>
+  </footer>
+
+  <audio autoplay loop id="bg-music">
     <source src="audio/musique.mp3" type="audio/mpeg">
     Votre navigateur ne supporte pas l'audio HTML5.
   </audio>
-  
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
+      const audio = document.getElementById("bg-music");
+      if (audio) audio.volume = 0.2;
+
       const listNew = document.getElementById("list-bateaux-new");
       const newItems = JSON.parse(localStorage.getItem("itemsBateauxNew") || "[]");
       newItems.forEach(item => {
