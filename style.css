@@ -41,7 +41,7 @@ iframe {
 }
 /* ======== HEADER ======== */
 header {
-  background-color: #003366; /* Bleu foncé du logo */
+  background-color: #101C2C;/* Bleu foncé du logo */
   color: white;
   padding: 20px;
   display: flex;
@@ -70,7 +70,7 @@ nav ul {
 }
 
 nav a {
-  color: #66aaff; /* Bleu clair comme les symboles du logo */
+ color: #CBA76C; 
   text-decoration: none;
   font-weight: bold;
   transition: color 0.3s;
