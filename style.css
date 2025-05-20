@@ -41,7 +41,7 @@ iframe {
 }
 /* ======== HEADER ======== */
 header {
-  background-color: #003366;
+  background-color: #003366; /* Bleu foncé du logo */
   color: white;
   padding: 20px;
   display: flex;
