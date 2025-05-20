@@ -82,12 +82,13 @@ nav a:hover {
 
 /* ======== SECTION ACCUEIL ======== */
 #accueil {
-  background-color: white;
+  background-color: rgba(0, 0, 0, 0.5); /* noir à 50% */
   max-width: 1000px;
   margin: 40px auto;
   padding: 40px;
   border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  color: white;
 }
 
 #accueil h2 {
