@@ -6,17 +6,32 @@ i/* ======== BASE GLOBALE ======== */
 }
 
 body {
+  font-family: 'Segoe UI', sans-serif;
+  color: white; /* Texte clair sur fond sombre */
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+
+  /* Image de fond */
   background-image: url('img/fond_arma3.png');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
-  color: white; /* Si le fond est sombre */
+  position: relative;
+}
 
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #f4f6f8;
-  color: #333;
-  line-height: 1.6;
+/* Overlay semi-transparent par-dessus l'image */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5); /* noir à 50% de transparence */
+  z-index: -1;
+
 }
 iframe {
   max-width: 100%;
