@@ -176,6 +176,7 @@ audio {
   object-fit: cover;
   opacity: 0;
   transition: opacity 1s ease-in-out;
+  z-index: 0; /* 👈 manquait ici */
 }
 
 .slider .slide.active {
