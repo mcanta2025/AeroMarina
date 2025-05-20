@@ -92,10 +92,9 @@ nav a:hover {
 }
 
 #accueil h2 {
-  color: #003366;
+  color: #CBA76C; /* ou #CBA76C si tu veux l'or du logo */
   font-size: 32px;
-  margin-bottom: 20px;
-}
+  margin-b
 
 #accueil p {
   margin-bottom: 16px;
